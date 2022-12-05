@@ -1,0 +1,713 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Ship Structural Design - Assignment 2 - Hatch cover design</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="#">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/seas.png" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Structural design of bulk carrier hatch cover
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Structural design of bulk carrier hatch cover</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="structural-design-of-bulk-carrier-hatch-cover">
+<h1>Structural design of bulk carrier hatch cover<a class="headerlink" href="#structural-design-of-bulk-carrier-hatch-cover" title="Permalink to this headline">#</a></h1>
+<section id="author-evandro-f-de-paula-filho">
+<h2>Author: Evandro F. de Paula Filho<a class="headerlink" href="#author-evandro-f-de-paula-filho" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="professor-jerolim-andric">
+<h2>Professor: Jerolim Andric<a class="headerlink" href="#professor-jerolim-andric" title="Permalink to this headline">#</a></h2>
+<section id="university-of-zagreb">
+<h3>University of Zagreb<a class="headerlink" href="#university-of-zagreb" title="Permalink to this headline">#</a></h3>
+<section id="intake-21-22">
+<h4>Intake 21/22<a class="headerlink" href="#intake-21-22" title="Permalink to this headline">#</a></h4>
+<p>This report comprises the hatch cover design for a bulk carrier as part of the 2<sup>nd</sup> assignment of Ship Structure Design lectures.</p>
+<div class="toctree-wrapper compound">
+<span id="document-Hatchcover_design"></span><section class="tex2jax_ignore mathjax_ignore" id="code-for-rule-calculations">
+<h5>Code for rule calculations<a class="headerlink" href="#code-for-rule-calculations" title="Permalink to this headline">#</a></h5>
+<p>Input data is defined in the cell below for run the calculations, and further ahead they will be summyrized:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1">#Input data from project description and inital definition of the rules</span>
+<span class="n">L</span>     <span class="o">=</span> <span class="mi">18500</span>       <span class="c1">#Length of hatch cover [mm]</span>
+<span class="n">B</span>     <span class="o">=</span> <span class="mi">18200</span>       <span class="c1">#Breath of hatch cover [mm]</span>
+<span class="n">W_max</span> <span class="o">=</span> <span class="mi">200</span><span class="o">*</span><span class="n">L</span><span class="o">*</span><span class="n">B</span><span class="o">/</span><span class="mf">1e6</span> <span class="c1">#Maximum weight of the hatch cover [kg]</span>
+<span class="n">tc</span>    <span class="o">=</span> <span class="mf">2.0</span>         <span class="c1">#Corrosion adition for plating and stiffeners [mm]</span>
+<span class="n">pw</span>    <span class="o">=</span> <span class="mf">34.3</span>        <span class="c1">#Wave pressure on deck [kN/mm²]</span>
+<span class="n">S</span>     <span class="o">=</span> <span class="mf">1.1</span>         <span class="c1">#Buckling safety factor for hatch covers</span>
+
+<span class="c1">#Materials yield and allowable stresses</span>
+<span class="n">E</span>         <span class="o">=</span> <span class="mf">206e3</span>         <span class="c1">#Steel Young&#39;s Modulus [N/mm²]</span>
+<span class="n">ReH_A</span>     <span class="o">=</span> <span class="mi">235</span>           <span class="c1">#Yield stress for mild steel [N/mm²]</span>
+<span class="n">ReH_AH32</span>  <span class="o">=</span> <span class="mi">315</span>           <span class="c1">#Yield stress for AH32 steel [N/mm²]</span>
+<span class="n">ReH_AH36</span>  <span class="o">=</span> <span class="mi">355</span>           <span class="c1">#Yield stress for AH36 steel [N/mm²]</span>
+<span class="n">sig_a_A</span>   <span class="o">=</span> <span class="mf">0.80</span><span class="o">*</span><span class="n">ReH_A</span>    <span class="c1">#Allowable normal stress for mild steel [N/mm²]</span>
+<span class="n">tal_a_A</span>   <span class="o">=</span> <span class="mf">0.46</span><span class="o">*</span><span class="n">ReH_A</span>    <span class="c1">#Allowable shear stress for mild steel [N/mm²]</span>
+<span class="n">sig_a_32</span>  <span class="o">=</span> <span class="mf">0.80</span><span class="o">*</span><span class="n">ReH_AH32</span> <span class="c1">#Allowable normal stress for AH32 steel [N/mm²]</span>
+<span class="n">tal_a_32</span>  <span class="o">=</span> <span class="mf">0.46</span><span class="o">*</span><span class="n">ReH_AH32</span> <span class="c1">#Allowable shear stress for AH32 steel [N/mm²]</span>
+<span class="n">sig_a_36</span>  <span class="o">=</span> <span class="mf">0.80</span><span class="o">*</span><span class="n">ReH_AH36</span> <span class="c1">#Allowable normal stress for AH36 steel [N/mm²]</span>
+<span class="n">tal_a_36</span>  <span class="o">=</span> <span class="mf">0.46</span><span class="o">*</span><span class="n">ReH_AH36</span> <span class="c1">#Allowable shear stress for AH36 steel [N/mm²]</span>
+
+<span class="c1">#Materials factor</span>
+<span class="n">k_A</span>    <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1">#Material factor for mild steel</span>
+<span class="n">k_AH32</span> <span class="o">=</span> <span class="mf">0.78</span> <span class="c1">#Material factor for AH32 steel</span>
+<span class="n">k_AH36</span> <span class="o">=</span> <span class="mf">0.72</span> <span class="c1">#Material factor for AH36 steel</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Plating requirements - Considering mild steel</span>
+<span class="c1">#Net thickness</span>
+<span class="n">Mat_pl</span> <span class="o">=</span> <span class="s2">&quot;A&quot;</span> <span class="c1">#Defining material properties</span>
+<span class="k">if</span> <span class="n">Mat_pl</span> <span class="o">==</span> <span class="s2">&quot;A&quot;</span><span class="p">:</span>
+    <span class="n">ReH_pl</span>   <span class="o">=</span> <span class="n">ReH_A</span>            
+    <span class="n">sig_a_pl</span> <span class="o">=</span> <span class="n">sig_a_A</span> 
+    <span class="n">tal_a_pl</span> <span class="o">=</span> <span class="n">tal_a_A</span>
+    <span class="n">k_pl</span>     <span class="o">=</span> <span class="n">k_A</span>
+<span class="k">elif</span> <span class="n">Mat_pl</span> <span class="o">==</span> <span class="s2">&quot;AH32&quot;</span><span class="p">:</span>
+    <span class="n">ReH_pl</span>   <span class="o">=</span> <span class="n">ReH_AH32</span>            
+    <span class="n">sig_a_pl</span> <span class="o">=</span> <span class="n">sig_a_32</span>
+    <span class="n">tal_a_pl</span> <span class="o">=</span> <span class="n">tal_a_32</span>
+    <span class="n">k_pl</span>     <span class="o">=</span> <span class="n">k_AH32</span>
+<span class="k">elif</span> <span class="n">Mat_pl</span> <span class="o">==</span> <span class="s2">&quot;AH36&quot;</span><span class="p">:</span>
+    <span class="n">ReH_pl</span>   <span class="o">=</span> <span class="n">ReH_AH36</span>            
+    <span class="n">sig_a_pl</span> <span class="o">=</span> <span class="n">sig_a_36</span>
+    <span class="n">tal_a_pl</span> <span class="o">=</span> <span class="n">tal_a_36</span>
+    <span class="n">k_pl</span>     <span class="o">=</span> <span class="n">k_AH36</span>
+<span class="n">S_max</span>  <span class="o">=</span> <span class="n">L</span><span class="o">/</span><span class="mi">3</span>                                    <span class="c1">#Spacing of PSM [mm]</span>
+<span class="n">Fp</span>     <span class="o">=</span> <span class="mf">1.5</span>                                    <span class="c1">#Factor for membrane and bending response</span>
+<span class="n">s</span>      <span class="o">=</span> <span class="mf">650e-3</span>                                 <span class="c1">#Spacing between stiffeners [m]</span>
+<span class="n">FW</span>     <span class="o">=</span> <span class="mf">1.0</span>                                    <span class="c1">#Rule coefficient </span>
+<span class="n">tp_min</span> <span class="o">=</span> <span class="mf">15.8</span><span class="o">*</span><span class="n">Fp</span><span class="o">*</span><span class="n">s</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">FW</span><span class="o">*</span><span class="n">pw</span><span class="o">/</span><span class="p">(</span><span class="mf">0.95</span><span class="o">*</span><span class="n">ReH_pl</span><span class="p">))</span> <span class="c1">#Net thickness of hatch cover top plating [mm]</span>
+<span class="k">if</span> <span class="n">tp_min</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">*</span><span class="n">s</span> <span class="ow">or</span> <span class="n">tp_min</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
+    <span class="n">tp_min</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Plating Net thickness </span>
+<span class="n">tp</span> <span class="o">=</span> <span class="n">tp_min</span><span class="o">+</span><span class="mf">2.5</span> <span class="c1">#Defining the plating net thickness for FEMAP</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Ordinary stiffeners requirements</span>
+<span class="c1">#Ratio hw/tw</span>
+<span class="n">Mat_stf</span> <span class="o">=</span> <span class="s2">&quot;AH32&quot;</span> <span class="c1">#Defining material properties</span>
+<span class="k">if</span> <span class="n">Mat_stf</span> <span class="o">==</span> <span class="s2">&quot;A&quot;</span><span class="p">:</span>
+    <span class="n">ReH_stf</span>   <span class="o">=</span> <span class="n">ReH_A</span>            
+    <span class="n">sig_a_stf</span> <span class="o">=</span> <span class="n">sig_a_A</span> 
+    <span class="n">tal_a_stf</span> <span class="o">=</span> <span class="n">tal_a_A</span>
+    <span class="n">k_stf</span>     <span class="o">=</span> <span class="n">k_A</span>
+<span class="k">elif</span> <span class="n">Mat_stf</span> <span class="o">==</span> <span class="s2">&quot;AH32&quot;</span><span class="p">:</span>
+    <span class="n">ReH_stf</span>   <span class="o">=</span> <span class="n">ReH_AH32</span>            
+    <span class="n">sig_a_stf</span> <span class="o">=</span> <span class="n">sig_a_32</span>
+    <span class="n">tal_a_stf</span> <span class="o">=</span> <span class="n">tal_a_32</span>
+    <span class="n">k_stf</span>     <span class="o">=</span> <span class="n">k_AH32</span>
+<span class="k">elif</span> <span class="n">Mat_stf</span> <span class="o">==</span> <span class="s2">&quot;AH36&quot;</span><span class="p">:</span>
+    <span class="n">ReH_stf</span>   <span class="o">=</span> <span class="n">ReH_AH36</span>            
+    <span class="n">sig_a_stf</span> <span class="o">=</span> <span class="n">sig_a_36</span>
+    <span class="n">tal_a_stf</span> <span class="o">=</span> <span class="n">tal_a_36</span>
+    <span class="n">k_stf</span>     <span class="o">=</span> <span class="n">k_AH36</span>
+        
+<span class="n">rat_hw_tw</span>  <span class="o">=</span> <span class="mi">15</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">235</span><span class="o">/</span><span class="n">ReH_stf</span><span class="p">)</span> <span class="c1">#Max. ratio hw/tw for stiffeners</span>
+<span class="n">tw_stf_min</span> <span class="o">=</span> <span class="mi">4</span>                       <span class="c1">#Min. web net thickness for stiffeners [mm]</span>
+
+<span class="n">c</span>   <span class="o">=</span> <span class="mf">1.3</span>     <span class="c1">#Rule coefficient when plating is stiffened by PSM</span>
+<span class="n">ls</span>  <span class="o">=</span> <span class="mf">4625e-3</span> <span class="c1">#Length of the longer side of the plate panel [m]</span>
+<span class="n">psi</span> <span class="o">=</span> <span class="mi">1</span>       <span class="c1">#Ratio between smallest and largest compressive stress </span>
+<span class="n">ss</span>  <span class="o">=</span> <span class="mf">4550e-3</span> <span class="c1">#Spacing between PSM [m]</span>
+<span class="n">m</span>   <span class="o">=</span> <span class="n">c</span><span class="o">*</span><span class="p">((</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="n">ss</span><span class="o">/</span><span class="n">ls</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">2.1</span><span class="o">/</span><span class="p">(</span><span class="n">psi</span><span class="o">+</span><span class="mf">1.1</span><span class="p">))</span> <span class="c1">#Rule coefficient</span>
+
+<span class="c1">#Net section modulus and shear area minimum requirements</span>
+<span class="n">w</span>   <span class="o">=</span> <span class="p">(</span><span class="n">FW</span><span class="o">*</span><span class="n">pw</span><span class="o">*</span><span class="n">s</span><span class="o">*</span><span class="n">ls</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mf">1e3</span><span class="o">/</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">sig_a_stf</span><span class="p">)</span> <span class="c1">#net section modulus of stiffeners [mm³]</span>
+<span class="n">Ash</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="n">FW</span><span class="o">*</span><span class="n">pw</span><span class="o">*</span><span class="n">s</span><span class="o">*</span><span class="n">ls</span><span class="o">/</span><span class="n">tal_a_stf</span>            <span class="c1">#net shear area of stiffeners [cm²]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Ordinary stiffeners definition - Angle bar </span>
+<span class="n">hw_stf</span> <span class="o">=</span> <span class="mi">250</span>           <span class="c1">#Web height of ordinary stiffener [mm]</span>
+<span class="n">bf_stf</span> <span class="o">=</span> <span class="mi">90</span>           <span class="c1">#Face plate/flange width of ordinary stiffener [mm]</span>
+<span class="n">tw_stf</span> <span class="o">=</span> <span class="mi">7</span>          <span class="c1">#Net web thickness of ordinary stiffener [mm]</span>
+<span class="n">tf_stf</span> <span class="o">=</span> <span class="mi">11</span>            <span class="c1">#Net face plate/flange thickness of ordinary stiffener [mm]</span>
+<span class="n">ratio</span>  <span class="o">=</span> <span class="n">hw_stf</span><span class="o">/</span><span class="n">tw_stf</span> <span class="c1">#Ratio hw/tw for the stiffener</span>
+
+<span class="n">Iw</span>     <span class="o">=</span> <span class="p">((</span><span class="n">bf_stf</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">hw_stf</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> 
+          <span class="p">(</span><span class="n">tf_stf</span> <span class="o">*</span> <span class="p">(</span><span class="n">bf_stf</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">bf_stf</span><span class="o">*</span><span class="n">hw_stf</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">hw_stf</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">tw_stf</span><span class="o">*</span><span class="n">bf_stf</span><span class="o">*</span><span class="n">hw_stf</span><span class="p">)</span><span class="o">*</span> 
+          <span class="mf">1e-6</span><span class="o">/</span><span class="p">(</span><span class="mi">12</span> <span class="o">*</span> <span class="p">(</span><span class="n">bf_stf</span> <span class="o">+</span> <span class="n">hw_stf</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>  <span class="c1">#Sectorial moment of inertia [cm^6]</span>
+
+<span class="n">Ip</span>     <span class="o">=</span> <span class="p">((</span><span class="n">hw_stf</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">tw_stf</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span> <span class="o">+</span> 
+          <span class="n">hw_stf</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">bf_stf</span><span class="o">*</span><span class="n">tf_stf</span><span class="p">)</span><span class="o">*</span><span class="mf">1e-4</span> <span class="c1">#Polar moment of inertia [cm^4]</span>
+
+<span class="n">It</span>     <span class="o">=</span> <span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">hw_stf</span><span class="o">*</span><span class="n">tw_stf</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> 
+                 <span class="n">bf_stf</span><span class="o">*</span><span class="n">tf_stf</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> 
+                 <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">0.63</span><span class="o">*</span><span class="n">tf_stf</span><span class="o">/</span><span class="n">bf_stf</span><span class="p">))</span> <span class="o">*</span> <span class="mf">1e-4</span><span class="p">)</span> <span class="c1">#St Venant&#39;s moment of inertia [cm^4]</span>
+
+<span class="n">A</span>      <span class="o">=</span>  <span class="p">(</span><span class="n">hw_stf</span><span class="o">*</span><span class="n">tw_stf</span> <span class="o">+</span> 
+           <span class="n">bf_stf</span><span class="o">*</span><span class="n">tf_stf</span> <span class="o">+</span> 
+           <span class="n">tp</span><span class="o">*</span><span class="p">(</span><span class="n">s</span><span class="o">*</span><span class="mf">1e3</span><span class="p">))</span><span class="o">*</span><span class="mf">1e-2</span> <span class="c1">#Cross-sectional area of the stiffener, including face plate [cm²]</span>
+<span class="n">l</span>      <span class="o">=</span> <span class="n">ls</span>                 <span class="c1">#Stiffener span [m]</span>
+
+<span class="n">stf_na</span> <span class="o">=</span> <span class="p">((</span><span class="n">hw_stf</span><span class="o">*</span><span class="n">tw_stf</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">hw_stf</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">tp</span><span class="p">)</span> <span class="o">+</span> 
+          <span class="p">(</span><span class="n">bf_stf</span><span class="o">*</span><span class="n">tf_stf</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">tf_stf</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">hw_stf</span><span class="o">+</span><span class="n">tp</span><span class="p">)</span> <span class="o">+</span>
+         <span class="p">(</span><span class="n">tp</span><span class="o">*</span><span class="n">s</span><span class="o">*</span><span class="mf">1e3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">tp</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="mf">1e2</span><span class="p">)</span> <span class="c1">#Stiffener neutral axis [mm]</span>
+
+<span class="n">Ia</span>     <span class="o">=</span> <span class="p">((</span><span class="n">s</span><span class="o">*</span><span class="mf">1e3</span><span class="p">)</span><span class="o">*</span><span class="n">tp</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="mi">12</span> <span class="o">+</span> <span class="n">tw_stf</span><span class="o">*</span><span class="n">hw_stf</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="mi">12</span> <span class="o">+</span> <span class="n">bf_stf</span><span class="o">*</span><span class="n">tf_stf</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="mi">12</span> <span class="o">+</span> 
+          <span class="p">(</span><span class="n">hw_stf</span><span class="o">*</span><span class="n">tw_stf</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">tp</span> <span class="o">+</span> <span class="n">hw_stf</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">stf_na</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> 
+          <span class="p">(</span><span class="n">bf_stf</span><span class="o">*</span><span class="n">tf_stf</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">tp</span> <span class="o">+</span> <span class="n">hw_stf</span> <span class="o">+</span> <span class="n">tf_stf</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">stf_na</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span>
+          <span class="p">((</span><span class="n">s</span><span class="o">*</span><span class="mf">1e3</span><span class="p">)</span><span class="o">*</span><span class="n">tp</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">tp</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">stf_na</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+         <span class="p">)</span><span class="o">*</span><span class="mf">1e-4</span> <span class="c1">#Moment of inertia of the stiffener, including face plate [cm^4]</span>
+<span class="n">wa</span>     <span class="o">=</span> <span class="n">Ia</span><span class="o">/</span><span class="p">(</span><span class="n">stf_na</span><span class="o">*</span><span class="mf">1e-1</span><span class="p">)</span> <span class="c1">#Stiffener section modulus [cm³]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Primary Supporting Members (PSM) requirements</span>
+<span class="n">Mat_psm</span> <span class="o">=</span> <span class="s2">&quot;AH36&quot;</span> <span class="c1">#Defining material properties</span>
+<span class="k">if</span> <span class="n">Mat_psm</span> <span class="o">==</span> <span class="s2">&quot;A&quot;</span><span class="p">:</span>
+    <span class="n">ReH_psm</span>   <span class="o">=</span> <span class="n">ReH_A</span>            
+    <span class="n">sig_a_psm</span> <span class="o">=</span> <span class="n">sig_a_A</span> 
+    <span class="n">tal_a_psm</span> <span class="o">=</span> <span class="n">tal_a_A</span>
+    <span class="n">k_psm</span>     <span class="o">=</span> <span class="n">k_A</span>
+<span class="k">elif</span> <span class="n">Mat_psm</span> <span class="o">==</span> <span class="s2">&quot;AH32&quot;</span><span class="p">:</span>
+    <span class="n">ReH_psm</span>   <span class="o">=</span> <span class="n">ReH_AH32</span>            
+    <span class="n">sig_a_psm</span> <span class="o">=</span> <span class="n">sig_a_32</span>
+    <span class="n">tal_a_psm</span> <span class="o">=</span> <span class="n">tal_a_32</span>
+    <span class="n">k_psm</span>     <span class="o">=</span> <span class="n">k_AH32</span>
+<span class="k">elif</span> <span class="n">Mat_psm</span> <span class="o">==</span> <span class="s2">&quot;AH36&quot;</span><span class="p">:</span>
+    <span class="n">ReH_psm</span>   <span class="o">=</span> <span class="n">ReH_AH36</span>            
+    <span class="n">sig_a_psm</span> <span class="o">=</span> <span class="n">sig_a_36</span>
+    <span class="n">tal_a_psm</span> <span class="o">=</span> <span class="n">tal_a_36</span>
+    <span class="n">k_psm</span>     <span class="o">=</span> <span class="n">k_AH36</span>
+<span class="n">tw_psm_min</span> <span class="o">=</span> <span class="mi">6</span> <span class="c1">#Minimum web net thickness [mm]</span>
+<span class="n">tw_psm</span>     <span class="o">=</span> <span class="mi">6</span> <span class="c1">#Defined web net thickness [mm]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#PSM definition - T bar </span>
+<span class="n">hw</span>        <span class="o">=</span> <span class="mi">1000</span>   <span class="c1">#PSM(Primary Supporting Member) depth [mm]</span>
+<span class="n">bf_min</span>    <span class="o">=</span> <span class="n">hw</span><span class="o">*</span><span class="mf">0.4</span> <span class="c1">#(Minimum)Breadth of PSM face plate [mm]</span>
+<span class="n">tw_min</span>    <span class="o">=</span> <span class="n">bf_min</span><span class="o">/</span><span class="mi">30</span>  <span class="c1">#(Minimum)Thickness of PSM face plate [mm]</span>
+<span class="n">bf</span>        <span class="o">=</span> <span class="mi">400</span>    <span class="c1">#Defined breadth of PSM face plate [mm]</span>
+<span class="n">tw</span>        <span class="o">=</span> <span class="mi">15</span>     <span class="c1">#Defined net thickness of PSM face plate [mm]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Total mass of the hatch cover</span>
+<span class="n">n_PSM</span> <span class="o">=</span> <span class="n">B</span><span class="o">/</span><span class="p">(</span><span class="n">ss</span><span class="o">*</span><span class="mf">1e3</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>                                    <span class="c1">#Number of PSM</span>
+<span class="n">n_s</span>   <span class="o">=</span> <span class="n">B</span><span class="o">/</span><span class="p">(</span><span class="n">s</span><span class="o">*</span><span class="mf">1e3</span><span class="p">)</span><span class="o">-</span><span class="n">n_PSM</span><span class="o">-</span><span class="mi">1</span>                                <span class="c1">#Number of ordinary stiffeners</span>
+<span class="n">n_trs</span> <span class="o">=</span> <span class="n">L</span><span class="o">/</span><span class="p">(</span><span class="n">ls</span><span class="o">*</span><span class="mf">1e3</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>                                    <span class="c1">#Number of transversal supports</span>
+<span class="n">m_PSM</span> <span class="o">=</span> <span class="p">(((</span><span class="n">tc</span><span class="o">+</span><span class="n">tw</span><span class="p">)</span><span class="o">*</span><span class="n">bf</span><span class="o">+</span><span class="p">(</span><span class="n">tw_psm</span><span class="o">+</span><span class="n">tc</span><span class="p">)</span><span class="o">*</span><span class="n">hw</span><span class="p">)</span><span class="o">*</span><span class="n">L</span><span class="o">*</span><span class="mf">1e-9</span><span class="p">)</span><span class="o">*</span><span class="mf">7.85</span><span class="o">*</span><span class="n">n_PSM</span> <span class="c1">#Mass of PSMs [t]</span>
+<span class="n">m_trs</span> <span class="o">=</span> <span class="p">(((</span><span class="n">tc</span><span class="o">+</span><span class="n">tw_psm</span><span class="p">)</span><span class="o">*</span><span class="n">hw</span><span class="o">+</span><span class="p">(</span><span class="n">tw</span><span class="o">+</span><span class="n">tc</span><span class="p">)</span><span class="o">*</span><span class="n">bf</span><span class="p">)</span><span class="o">*</span><span class="n">B</span><span class="o">*</span><span class="mf">1e-9</span><span class="p">)</span><span class="o">*</span><span class="mf">7.85</span><span class="o">*</span><span class="n">n_trs</span> <span class="c1">#Mass of transversal supports</span>
+<span class="n">m_pl</span>  <span class="o">=</span> <span class="p">((</span><span class="n">tp</span><span class="o">+</span><span class="n">tc</span><span class="p">)</span><span class="o">*</span><span class="n">B</span><span class="o">*</span><span class="n">L</span><span class="o">*</span><span class="mf">1e-9</span><span class="p">)</span><span class="o">*</span><span class="mf">7.85</span>                         <span class="c1">#Mass of top plating [t]</span>
+<span class="n">m_stf</span> <span class="o">=</span> <span class="p">(((</span><span class="n">tw_stf</span><span class="o">+</span><span class="n">tc</span><span class="p">)</span><span class="o">*</span><span class="n">hw_stf</span><span class="o">+</span>
+          <span class="p">(</span><span class="n">tf_stf</span><span class="o">+</span><span class="n">tc</span><span class="p">)</span><span class="o">*</span><span class="n">bf_stf</span><span class="p">)</span><span class="o">*</span><span class="n">L</span><span class="o">*</span><span class="mf">1e-9</span><span class="p">)</span><span class="o">*</span><span class="mf">7.85</span><span class="o">*</span><span class="n">n_s</span>          <span class="c1">#Mass of ordinary stiffeners [t]</span>
+
+<span class="n">M_t</span>   <span class="o">=</span> <span class="n">m_stf</span><span class="o">+</span><span class="n">m_pl</span><span class="o">+</span><span class="n">m_PSM</span><span class="o">+</span><span class="n">m_trs</span>                          <span class="c1">#Total mass of the hatch cover [t]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Summary of inputs</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Length of hatch cover:                        </span><span class="si">{</span><span class="n">L</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Breath of hatch cover:                        </span><span class="si">{</span><span class="n">B</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Corrosion adition for plating and stiffeners  </span><span class="si">{</span><span class="n">tc</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maximum weight of hatch cover:                </span><span class="si">{</span><span class="n">W_max</span><span class="o">/</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> t&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Corrosion adition for plating and stiffeners: </span><span class="si">{</span><span class="n">tc</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Wave pressure on deck:                        </span><span class="si">{</span><span class="n">pw</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> kN/mm²&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maximum spacing between PSM:                  </span><span class="si">{</span><span class="n">S_max</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Defined spacing between PSM:                  </span><span class="si">{</span><span class="n">B</span><span class="o">/</span><span class="mi">4</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Defined height of PSM:                        </span><span class="si">{</span><span class="n">hw</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Defined spacing between stiffeners:           </span><span class="si">{</span><span class="n">s</span><span class="o">*</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Length of hatch cover:                        18500 mm
+Breath of hatch cover:                        18200 mm
+Corrosion adition for plating and stiffeners  2 mm
+Maximum weight of hatch cover:                67.34 t
+Corrosion adition for plating and stiffeners: 2.0 mm
+Wave pressure on deck:                        34.3 kN/mm²
+Maximum spacing between PSM:                  6166.67 mm
+Defined spacing between PSM:                  4550.00 mm
+Defined height of PSM:                        1000.00 mm
+Defined spacing between stiffeners:           650.00 mm
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Summary of rule calculations</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Min. net thickness of hatch cover top plating: </span><span class="si">{</span><span class="n">tp_min</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Material of the hatch cover top plating:       Steel ST</span><span class="si">{</span><span class="n">Mat_pl</span><span class="si">}</span><span class="s2"> with yield stress </span><span class="si">{</span><span class="n">ReH_pl</span><span class="si">}</span><span class="s2"> MPa&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Max. ratio hw/tw for flat bar stiffeners:      </span><span class="si">{</span><span class="n">rat_hw_tw</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Min. net section modulus of stiffeners:        </span><span class="si">{</span><span class="n">w</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> mm³&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Min. net shear area of stiffeners:             </span><span class="si">{</span><span class="n">Ash</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> cm²&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Min. breadth of PSM face plate:                </span><span class="si">{</span><span class="n">bf_min</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Min. net thickness of PSM face plate:          </span><span class="si">{</span><span class="n">tw_min</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Min. net thickness of PSM web:                 </span><span class="si">{</span><span class="n">tw_psm_min</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Min. net thickness of hatch cover top plating: 6.50 mm
+Material of the hatch cover top plating:       Steel STA with yield stress 235 MPa
+Max. ratio hw/tw for flat bar stiffeners:      12.96
+Min. net section modulus of stiffeners:        375.93 mm³
+Min. net shear area of stiffeners:             3.56 cm²
+Min. breadth of PSM face plate:                400.00 mm
+Min. net thickness of PSM face plate:          13.33 mm
+Min. net thickness of PSM web:                 6.00 mm
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Summary of hatch cover data</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Material of the stiffeners:                              Steel ST</span><span class="si">{</span><span class="n">Mat_stf</span><span class="si">}</span><span class="s2"> with yield stress </span><span class="si">{</span><span class="n">ReH_stf</span><span class="si">}</span><span class="s2"> MPa&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Material of the PSM:                                     Steel ST</span><span class="si">{</span><span class="n">Mat_psm</span><span class="si">}</span><span class="s2"> with yield stress </span><span class="si">{</span><span class="n">ReH_psm</span><span class="si">}</span><span class="s2"> MPa&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Material of the plating:                                 Steel ST</span><span class="si">{</span><span class="n">Mat_pl</span><span class="si">}</span><span class="s2"> with yield stress </span><span class="si">{</span><span class="n">ReH_pl</span><span class="si">}</span><span class="s2"> MPa&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Web height of stiffener:                                 </span><span class="si">{</span><span class="n">hw_stf</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Face plate/flange width of stiffener:                    </span><span class="si">{</span><span class="n">bf_stf</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Net web thickness of stiffener:                          </span><span class="si">{</span><span class="n">tw_stf</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Net face plate/flange thickness of stiffener:            </span><span class="si">{</span><span class="n">tf_stf</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sectorial moment of inertia:                             </span><span class="si">{</span><span class="n">Iw</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> mm</span><span class="se">\u2076</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Polar moment of inertia:                                 </span><span class="si">{</span><span class="n">Ip</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> mm</span><span class="se">\u2074</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;St Venant&#39;s moment of inertia:                           </span><span class="si">{</span><span class="n">It</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> mm</span><span class="se">\u2074</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cross-sectional area of the stiffener (including plate): </span><span class="si">{</span><span class="n">A</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> cm²&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Moment of inertia of the stiffener:                      </span><span class="si">{</span><span class="n">Ia</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> cm</span><span class="se">\u2074</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Section Modulus of the stiffener:                        </span><span class="si">{</span><span class="n">wa</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> cm</span><span class="se">\u2074</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Defined breadth of PSM face plate:                       </span><span class="si">{</span><span class="n">bf</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Defined net thickness of PSM face plate:                 </span><span class="si">{</span><span class="n">tw</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Defined net thickness of PSM web:                        </span><span class="si">{</span><span class="n">tw_psm</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Defined net thickness of top plating:                    </span><span class="si">{</span><span class="n">tp</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total gross mass of the hatch cover:                     </span><span class="si">{</span><span class="n">M_t</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> t&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Material of the stiffeners:                              Steel STAH32 with yield stress 315 MPa
+Material of the PSM:                                     Steel STAH36 with yield stress 355 MPa
+Material of the plating:                                 Steel STA with yield stress 235 MPa
+Web height of stiffener:                                 250.00 mm
+Face plate/flange width of stiffener:                    90.00 mm
+Net web thickness of stiffener:                          7.00 mm
+Net face plate/flange thickness of stiffener:            11.00 mm
+Sectorial moment of inertia:                             125027.55 mm⁶
+Polar moment of inertia:                                 9833.33 mm⁴
+St Venant&#39;s moment of inertia:                           6.54 mm⁴
+Cross-sectional area of the stiffener (including plate): 85.90 cm²
+Moment of inertia of the stiffener:                      7816.24 cm⁴
+Section Modulus of the stiffener:                        1284.56 cm⁴
+Defined breadth of PSM face plate:                       400.00 mm
+Defined net thickness of PSM face plate:                 15.00 mm
+Defined net thickness of PSM web:                        6.00 mm
+Defined net thickness of top plating:                    9.00 mm
+Total gross mass of the hatch cover:                     61.32 t
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Input of the results - Enter the compressive stresses</span>
+<span class="n">sig_pl_fem_pa</span>  <span class="o">=</span> <span class="mf">103.83</span>  <span class="c1">#Stress (parallel to the stiffeners) in the hatch cover plating from FEA in N/mm² (MPa)</span>
+<span class="n">sig_pl_fem_pe</span>  <span class="o">=</span> <span class="mf">108.97</span>  <span class="c1">#Stress (perpendicular to stiffeners) in the hatch cover plating from FEA in N/mm² (MPa)</span>
+<span class="n">sig_stf_fem</span>    <span class="o">=</span> <span class="mf">128.93</span>  <span class="c1">#Stress in the face plate of the stiffeners from FEA in N/mm² (MPa)</span>
+<span class="n">tal_psm_fem</span>    <span class="o">=</span> <span class="mf">126.59</span>  <span class="c1">#Shear stress in the web panels of the PSM from FEA in N/mm² (MPa)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Critical buclking stress check: Compressive stresses in the hatch cover plating</span>
+<span class="c1">#Stress induced by the bending of PSM, parallel to the direction of stiffeners: </span>
+<span class="n">sig_E1</span> <span class="o">=</span> <span class="mf">3.6</span><span class="o">*</span><span class="n">E</span><span class="o">*</span><span class="p">(</span><span class="n">tp</span><span class="o">/</span><span class="p">(</span><span class="n">s</span><span class="o">*</span><span class="mf">1e3</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span> <span class="c1">#Elastic buckling stress [N/mm²]</span>
+
+<span class="c1">#Critical buckling stress [N/mm²]</span>
+<span class="k">if</span> <span class="n">sig_E1</span> <span class="o">&gt;</span> <span class="n">ReH_pl</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span>
+    <span class="n">sig_C1</span> <span class="o">=</span> <span class="n">ReH_pl</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="n">ReH_pl</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">sig_E1</span><span class="p">)))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">sig_C1</span> <span class="o">=</span> <span class="n">sig_E1</span> 
+<span class="n">sig_c_pa</span> <span class="o">=</span> <span class="mf">0.88</span><span class="o">*</span><span class="n">sig_C1</span><span class="o">/</span><span class="n">S</span> <span class="c1">#Compressive stress threshold</span>
+
+<span class="c1">#Stress induced by the bending of PSM, perpendicular to the direction of stiffeners:</span>
+<span class="n">sig_E2</span> <span class="o">=</span> <span class="mf">0.9</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">E</span><span class="o">*</span><span class="p">(</span><span class="n">tp</span><span class="o">/</span><span class="p">(</span><span class="n">s</span><span class="o">*</span><span class="mf">1e3</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span> <span class="c1">#Elastic buckling stress [N/mm²]</span>
+<span class="c1">#Critical buckling stress [N/mm²]</span>
+<span class="k">if</span> <span class="n">sig_E2</span> <span class="o">&gt;</span> <span class="n">ReH_pl</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span>
+    <span class="n">sig_C2</span> <span class="o">=</span> <span class="n">ReH_pl</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="n">ReH_pl</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">sig_E2</span><span class="p">)))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">sig_C2</span> <span class="o">=</span> <span class="n">sig_E2</span> 
+<span class="n">sig_c_pe</span> <span class="o">=</span> <span class="mf">0.88</span><span class="o">*</span><span class="n">sig_C2</span><span class="o">/</span><span class="n">S</span> <span class="c1">#Compressive stress threshold</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Critical buclking stress check: Compressive stresses in the face plate of the stiffeners</span>
+<span class="c1">#Stress induced by the bending of PSM:</span>
+
+<span class="n">sig_E3</span>   <span class="o">=</span> <span class="mf">1e-3</span><span class="o">*</span><span class="n">E</span><span class="o">*</span><span class="n">Ia</span><span class="o">/</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="n">l</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> 
+<span class="n">etap</span>     <span class="o">=</span> <span class="n">sig_stf_fem</span><span class="o">/</span><span class="n">sig_E1</span>
+<span class="k">if</span> <span class="mi">1</span><span class="o">-</span><span class="n">etap</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">kp</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="n">kp</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">etap</span>
+<span class="n">C</span>        <span class="o">=</span> <span class="p">((</span><span class="n">kp</span><span class="o">*</span><span class="n">E</span><span class="o">*</span><span class="n">tp</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mf">1e-3</span> <span class="o">/</span>
+            <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">s</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="mf">1.33</span><span class="o">*</span><span class="n">kp</span><span class="o">*</span><span class="n">hw_stf</span><span class="o">*</span><span class="n">tp</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span> <span class="o">/</span>
+                  <span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">s</span><span class="o">*</span><span class="n">tw_stf</span><span class="o">**</span><span class="mi">3</span><span class="p">))))</span> <span class="c1">#Spring stiffness exerted by the top plating</span>
+<span class="n">K</span>        <span class="o">=</span> <span class="p">(</span><span class="n">C</span><span class="o">*</span><span class="n">l</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span><span class="o">/</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="n">E</span><span class="o">*</span><span class="n">Iw</span><span class="p">)</span>
+
+<span class="c1">#Calculating the number of half waves</span>
+<span class="k">if</span> <span class="n">K</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">K</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+    <span class="n">m_w</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">elif</span> <span class="n">K</span> <span class="o">&lt;</span> <span class="mi">36</span><span class="p">:</span> 
+    <span class="n">m_w</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">elif</span> <span class="n">K</span> <span class="o">&lt;</span> <span class="mi">144</span><span class="p">:</span>
+    <span class="n">m_w</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="k">while</span> <span class="n">K</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">m_w</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">m_w</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">:</span>
+        <span class="n">m_w</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">sig_E4</span>   <span class="o">=</span> <span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">E</span><span class="o">*</span><span class="n">Iw</span><span class="o">/</span><span class="p">(</span><span class="mf">1e4</span><span class="o">*</span><span class="n">Ip</span><span class="o">*</span><span class="n">l</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">m_w</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">K</span><span class="o">/</span><span class="n">m_w</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mf">0.385</span><span class="o">*</span><span class="n">E</span><span class="o">*</span><span class="n">It</span><span class="o">/</span><span class="n">Ip</span>
+
+<span class="n">sig_ES</span>   <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">sig_E3</span><span class="p">,</span> <span class="n">sig_E4</span><span class="p">)</span> <span class="c1">#Elastic buckling stress [N/mm²]</span>
+<span class="c1">#Critical buckling stress [N/mm²]: </span>
+<span class="k">if</span> <span class="n">sig_ES</span> <span class="o">&lt;=</span> <span class="n">ReH_stf</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span> 
+    <span class="n">sig_CS</span> <span class="o">=</span> <span class="n">sig_ES</span> 
+<span class="k">else</span><span class="p">:</span> 
+    <span class="n">sig_CS</span> <span class="o">=</span> <span class="n">ReH_stf</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">ReH_stf</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">sig_ES</span><span class="p">))</span>
+
+<span class="n">sig_c_stf</span> <span class="o">=</span> <span class="mf">0.88</span><span class="o">*</span><span class="n">sig_CS</span><span class="o">/</span><span class="n">S</span> <span class="c1">#Compressive stress threshold</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Critical shear buclking stress check: Shear stresses in the web panels of the PSM:</span>
+<span class="n">a</span>  <span class="o">=</span> <span class="n">L</span><span class="o">*</span><span class="mf">1e-3</span>  <span class="c1">#Greater dimension of web panel of PSM [m] </span>
+<span class="n">d</span>  <span class="o">=</span> <span class="n">hw</span><span class="o">*</span><span class="mf">1e-3</span> <span class="c1">#Smaller dimension of web panel of PSM [m] </span>
+<span class="n">kt</span> <span class="o">=</span> <span class="mf">5.35</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">d</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">tal_E</span> <span class="o">=</span> <span class="mf">0.9</span><span class="o">*</span><span class="n">kt</span><span class="o">*</span><span class="n">E</span><span class="o">*</span><span class="p">(</span><span class="n">tw</span><span class="o">/</span><span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">d</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span> 
+<span class="k">if</span> <span class="n">tal_E</span> <span class="o">&lt;=</span> <span class="n">ReH_psm</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)):</span>
+    <span class="n">tal_C</span> <span class="o">=</span> <span class="n">tal_E</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="n">tal_C</span> <span class="o">=</span> <span class="p">(</span><span class="n">ReH_psm</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">ReH_psm</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="n">tal_E</span><span class="p">))</span>
+    
+<span class="n">tal_psm</span> <span class="o">=</span> <span class="mf">0.88</span><span class="o">*</span><span class="n">tal_C</span><span class="o">/</span><span class="n">S</span> <span class="c1">#Sheer stress threshold</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Summary of the results and checks</span>
+
+<span class="k">if</span> <span class="n">sig_pl_fem_pa</span> <span class="o">&gt;</span> <span class="n">sig_c_pa</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Compressive stress (parallel to stiffeners) in the hatch cover plating: </span><span class="si">{</span><span class="n">sig_pl_fem_pa</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> MPa greater than threshold: </span><span class="si">{</span><span class="n">sig_c_pa</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> MPa&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Compressive stress (parallel to stiffeners) in the hatch cover plating: </span><span class="si">{</span><span class="n">sig_pl_fem_pa</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> MPa lower than threshold: </span><span class="si">{</span><span class="n">sig_c_pa</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> MPa&quot;</span><span class="p">)</span>
+        
+<span class="k">if</span> <span class="n">sig_pl_fem_pe</span> <span class="o">&gt;</span> <span class="n">sig_c_pe</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Compressive stress (perpendicular to stiffeners) in the hatch cover plating </span><span class="si">{</span><span class="n">sig_pl_fem_pe</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> MPa greater than threshold: </span><span class="si">{</span><span class="n">sig_c_pe</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> MPa&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Compressive stress (perpendicular to stiffeners) in the hatch cover plating </span><span class="si">{</span><span class="n">sig_pl_fem_pe</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> MPa lower than threshold: </span><span class="si">{</span><span class="n">sig_c_pe</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> MPa&quot;</span><span class="p">)</span>
+    
+<span class="k">if</span> <span class="n">sig_stf_fem</span> <span class="o">&gt;</span> <span class="n">sig_c_stf</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Compressive stress in stiffeners face plate: </span><span class="si">{</span><span class="n">sig_stf_fem</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> MPa grater than threshold: </span><span class="si">{</span><span class="n">sig_c_stf</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> MPa&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Compressive stress in stiffeners face plate: </span><span class="si">{</span><span class="n">sig_stf_fem</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> MPa lower than threshold: </span><span class="si">{</span><span class="n">sig_c_stf</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> MPa&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">tal_psm_fem</span> <span class="o">&gt;</span> <span class="n">tal_psm</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shear stress in the PSM web panels: </span><span class="si">{</span><span class="n">tal_psm_fem</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> MPa greater than threshold: </span><span class="si">{</span><span class="n">tal_psm</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> MPa&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shear stress in the PSM web panels: </span><span class="si">{</span><span class="n">tal_psm_fem</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> MPa lower than threshold: </span><span class="si">{</span><span class="n">tal_psm</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> MPa&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Compressive stress (parallel to stiffeners) in the hatch cover plating: 103.83 MPa lower than threshold: 110.31 MPa
+Compressive stress (perpendicular to stiffeners) in the hatch cover plating 108.97 MPa lower than threshold: 126.27 MPa
+Compressive stress in stiffeners face plate: 128.93 MPa lower than threshold: 189.44 MPa
+Shear stress in the PSM web panels: 126.59 MPa lower than threshold: 163.82 MPa
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Evandro F. de Paula Filho<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

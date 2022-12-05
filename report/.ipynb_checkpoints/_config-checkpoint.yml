@@ -1,0 +1,10 @@
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Ship Structural Design - Assignment 2 - Hatch cover design
+author: Evandro F. de Paula Filho
+logo: images/seas.png
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: force
